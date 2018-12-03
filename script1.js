@@ -1,5 +1,5 @@
 
- export class UserInp
+ class UserInp
  {
      constructor()
      {
