@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+body
+{
+    background: rgb(0, 0, 0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+form
+{
+    display: grid;
+    background: rgb(241, 239, 239);
+    color: rgb(90, 90, 90);
+    border-radius: 20px;
+    grid-template-columns: repeat(2,minmax(1fr,1fr));
+    grid-gap: 25px 10px;
+    grid-auto-rows: minmax(10px,25px);
+    z-index: 200;
+    height: 45%;
+    width: 35%;
+    align-content: center;
+    justify-content: center;
+}
+.one
+    {
+        background: rgb(0, 0, 0);
+        border-top: 2px solid rgb(0, 174, 255);
+        border-bottom: 2px solid rgb(0, 174, 255);       
+        height:70vh;
+        position: absolute;
+        width: 100vw;
+        transform: skew(0deg,-10deg);
+    }    
+h1
+{
+    grid-column: 1/3;
+    z-index: 200;
+}
+input
+{
+    width: 100%;
+    background: rgb(90, 90, 90);
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    border:none;
+}
+label
+{
+    justify-self: end;
+    z-index: 200;
+    align-self: center;
+}
+button
+{
+    grid-column: 2/3;
+    background: rgb(90, 90, 90);
+    border-radius: 20px;
+    height: 100%;
+    color: white;
+    z-index: 200;
+    width: 100%;
+    justify-self: start;
+    align-self:center ;
+}
+.tekst
+{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+.tekst input
+{
+    width: 10%;
+}
+.tekst p
+{
+    width: 60%;
+}
+
+ @media(max-width:600px)
+    {
+        form
+{ 
+    width: 100%;
+}
+}
+</style>
+</head>
+<body>
+    <form name="myform" action='' >
+        <h1>Zaloz konto</h1>
+        <label for="nick">Podaj Nick</label>
+        <input  type="text" class="nick">
+
+        <label for="nick">Podaj Haslo</label>
+        <input type="password"  class="password">
+
+        <label for="nick">Powtorz Haslo</label>
+        <input type="password" class="password2">
+
+        <label for="nick">Podaj Email</label>
+        <input type="text" class="email">
+        <label class="tekst"><p>Akceptuje warunki</p>
+        <input type="checkbox">
+        </label>
+        <button>Zaloz Konto</button>
+    </form>
+    <div class="one"> </div>
+    <div class="jd"> </div>
+   
+   <script type="module">
+    //import {LineObj} from '../login/fetchapI/script.js'
+   const form=document.querySelector('form'); 
+   const inp1=document.querySelector('.nick');
+   const inp2=document.querySelector('.password');
+   const inp3=document.querySelector('.password2');
+   const inp4=document.querySelector('.email');
+   const but=document.querySelector('button');
+       
+      class NewUser
+      {
+          constructor()
+          {
+           this.tab=[];
+          } 
+        getElement(input,value,passCheck)
+       {
+        console.log(input.value);
+           if(inp2.value!=inp3.value && passCheck)
+           {
+            this.tab=[];
+             alert('Bledne haslo');
+             return 
+           }
+
+           if(input.value=='')
+           {
+            alert(`wpisz ${value}`);
+            return;
+           }
+          
+
+            this.tab.push(input.value);;
+            
+           if(this.tab.length=='4')
+           {
+            this.sendValues();
+            form.action="../element2/index.html";
+            console.log(this.tab);
+            input.value='';
+           }
+       }
+       async sendValues()
+       {
+            await fetch(`https://queatreact.firebaseio.com/users.json`,
+     {
+       method:'POST',
+       body:JSON.stringify({
+           element:this.tab
+       })
+        })
+    
+}
+
+       static Init()
+       {
+        user.getElement(inp1,'imie');
+        user.getElement(inp2,'haslo','ok');
+        user.getElement(inp3,'haslo','ok');
+        user.getElement(inp4,'Email');
+        
+       }
+      }
+
+
+
+
+  
+  const user=new NewUser();
+  but.addEventListener('click',NewUser.Init)
+
+
+         
+
+    </script>
+</body>
+</html>

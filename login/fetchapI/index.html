@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body
+    {
+        height: 100vh;
+    }
+    section
+    {
+        background: black;
+        height: 100%;
+        width: 100%;
+
+    }
+    header
+    {
+        height: 10%;
+        width: 100%;
+    }
+    .line
+    {
+        height: 100%;
+        color: white;
+        text-align: center;
+        border-bottom: 2px solid rgb(0, 174, 255);
+        position: relative;
+    }
+    header p
+    {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,50%);
+        padding: 0;
+    }
+    header p.active
+    {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 3px;
+        font-size: 1.5rem;
+        animation:tlo2 1s linear;
+        position: absolute;
+        color: white;
+        left: 50%;
+        transform: translate(-50%,65%);
+        padding: 0;
+    }
+    header.active
+    {
+        height: 10%;
+        background-color: rgb(0, 56, 82);
+        animation:tlo 2s linear;
+        transition: 0.4s linear;
+        text-align: center;
+        color: white;
+        width: 100%;
+    }
+    @keyframes tlo2 
+    {
+        0%
+        {
+            opacity: 0;
+        }
+        50%
+        {
+            opacity: 0;
+        }
+        100%
+        {
+            opacity: 1;
+        }
+
+    }
+    @keyframes tlo
+    {
+       
+        0%
+        {
+            background-color: black;
+        }
+       
+        50%
+        {
+            background-color: black;
+        }
+        100%
+        {
+            background-color: rgb(0, 56, 82);
+        }
+    }
+    .line h1.active
+    {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        top: 20%;
+    }
+    .Login
+    {
+        position: absolute;
+        left: 50%;
+        border-radius: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        transform: translate(-50%,-40%);
+        top: 50%;
+        background: rgb(241, 239, 239);
+        height: 50%;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Login h2
+    {
+        letter-spacing:2px;
+        color: rgb(117, 116, 116);
+        margin-top:2.73rem;
+        font-size: 2rem;
+        text-shadow: 1px 1px 3px 2px black;
+    }
+    form
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    form div
+    {
+        width: 60%;
+         height:20%;
+    }
+    form div input
+    {
+        width: 100%;
+        border: 1px black solid;
+        height: 55%;
+        border-radius: 20px;
+        font-size: 1.2rem;
+        margin-bottom:  1.5rem;
+    }
+    form button
+    {
+       width: 60%;
+       background: rgb(41, 174, 236);
+       font-weight: 400;
+       color: white;
+       letter-spacing: 2px;
+       font-size: 1rem;
+       border-radius: 20px;
+        height: 15%;
+        cursor: pointer;
+        transform: scale(1);
+        transition: 0.3s linear;
+    }
+    form button:hover
+    {
+        background: rgb(0, 91, 133);
+    }
+    p a
+    {
+       color:  rgb(41, 174, 236);
+       text-decoration: none;
+    }
+    p
+    {
+        margin-bottom: 1rem;
+    }
+    button:disabled
+    {
+        background-color: rgb(177, 175, 175);
+    }
+    button:disabled:hover
+    {
+        background-color: rgb(177, 175, 175);
+        cursor:not-allowed;
+    }
+    @media(max-width:640px)
+    {
+        .Login
+    {
+        height: 50%;
+        width: 100%;
+
+    }
+    header p.active
+    {
+        transform: translate(-50%,20%);
+    }
+    }
+    
+    </style>
+
+</head>
+<body>
+    <section>
+            <header><p></p><div class="line"></div></header>
+            <div class="Login">
+                <h2>Zaloguj sie na konto</h2>
+            <form action=" ">
+                <div>
+                        <input placeholder=" Nick" id="nick"></input>
+                        <input type="password"  placeholder=" Haslo" id="haslo"></input>
+                </div>
+                <button disabled=true>Zaloguj</button>
+            </form>
+            <p><a href="../../podst1/index.html">Nie masz konta? Zarejestruj sie</a></p>
+           </div>
+    </section>
+   
+    <script src='script.js'type="module"></script>
+</body>
+</html>
+
+
